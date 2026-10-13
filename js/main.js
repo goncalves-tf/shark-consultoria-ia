@@ -8,7 +8,7 @@
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const GOLD = '#ffcc00';
 
-  const ORDER = ['s0','s1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11','s12','aA','aB','aC','aD','aE','aF','aG'];
+  const ORDER = ['s0','s1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11','s12','sV','aA','aB','aC','aD','aE','aF','aG'];
   const MAIN_LAST = ORDER.indexOf('s12');
   const extras = []; // tweens infinitos da cena atual
 
@@ -169,6 +169,13 @@
       fade(t, '#s12 img', '+=.8', 1.2);
     } },
   };
+  S.sV = {
+    enter: t => {
+      fade(t, '#sV', 0, .4);
+      t.call(() => { const v = $('#vid'); if (window.__site && window.__site.ready && v) { v.currentTime = 0; v.play().catch(() => {}); } });
+    },
+    leave: () => { const v = $('#vid'); if (v) v.pause(); }
+  };
   ['aA','aB','aC','aD','aE','aF','aG'].forEach(id => {
     S[id] = { enter: t => { up(t, `#${id} .head`, 0, { y: 16, d: .5 }); up(t, `#${id} .body`, .1, { y: 16, d: .5 }); } };
   });
@@ -194,7 +201,7 @@
     const c = $('#count'), p = $('#prog');
     if (si === 0) { c.textContent = ''; p.style.width = '0%'; return; }
     if (si <= MAIN_LAST) { c.textContent = String(si).padStart(2, '0') + ' / 12'; p.style.width = (si / 12 * 100) + '%'; }
-    else { c.textContent = 'ANEXO ' + id.slice(1); p.style.width = '100%'; }
+    else { c.textContent = id === 'sV' ? 'VÍDEO · OPCIONAL' : 'ANEXO ' + id.slice(1); p.style.width = '100%'; }
   }
   function playScene(si, step, animate) {
     const id = ORDER[si];
@@ -254,7 +261,7 @@
     else if (k === 't' || k === 'T') toggleTimer();
     else if ((k === 'r' || k === 'R') && T.on) T.start = performance.now();
   });
-  addEventListener('click', e => { if (window.__site.ready && e.button === 0) next(1); });
+  addEventListener('click', e => { if (e.target.closest && e.target.closest('video')) return; if (window.__site.ready && e.button === 0) next(1); });
   addEventListener('contextmenu', e => { e.preventDefault(); if (window.__site.ready) next(-1); });
   addEventListener('resize', () => { if (ORDER[curSi] === 's2') { layoutDots(); if (!D.on) D.on = true; drawDots(); } });
 

@@ -151,3 +151,7 @@ body{font-family:var(--sans);-webkit-font-smoothing:antialiased;cursor:default;u
 .pb .k{font-family:var(--mono);font-size:clamp(14px,1.1vw,22px);letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
 .pb .v{font-weight:900;font-size:clamp(80px,9.5vw,190px);letter-spacing:-.045em;line-height:1;color:var(--gold);margin-top:.1em}
 .pb .s{font-weight:500;font-size:clamp(20px,1.85vw,36px);color:var(--dim);margin-top:.3em}
+
+/* vídeo opcional */
+#sV{padding:clamp(16px,3vh,40px) var(--pad)}
+#vid{width:auto;height:auto;max-width:100%;max-height:82vh;aspect-ratio:16/9;background:#000;border:1px solid var(--faint)}
