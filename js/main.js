@@ -145,12 +145,9 @@
       fade(t, '#m7', '-=.2', .7);
     } },
     s8: { enter: t => {
-      const o = { a: 0, b: 0 };
-      const A = $('#v505'), B = $('#v160');
-      t.call(() => { A.textContent = 'R$ 0 mil'; B.textContent = 'R$ 0 mil'; }, null, 0);
-      up(t, '#s8 .m', .1, { s: .2, y: 30 });
-      t.to(o, { a: 505, b: 160, duration: 1.7, ease: 'power2.out', onUpdate: () => { A.textContent = `R$ ${Math.round(o.a)} mil`; B.textContent = `R$ ${Math.round(o.b)} mil`; } }, .3);
-      fade(t, '#m8', '-=.4', .8);
+      up(t, '#s8 .dre .row', .1, { s: .22, y: 18, d: .5 });
+      t.fromTo('#s8 .pb', { autoAlpha: 0, scale: .85 }, { autoAlpha: 1, scale: 1, duration: .7, ease: 'back.out(2)', transformOrigin: '0% 50%' }, '-=.2');
+      fade(t, '#m8', '-=.2', .7);
     } },
     s9: { enter: t => up(t, '#s9 .f', .15, { s: .35, y: 36 }) },
     s10: { enter: t => {

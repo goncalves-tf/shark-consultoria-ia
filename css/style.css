@@ -136,3 +136,18 @@ body{font-family:var(--sans);-webkit-font-smoothing:antialiased;cursor:default;u
 #timer.on{display:block}
 #timer.warn{color:var(--gold)}
 #timer.over{color:var(--red)}
+
+/* scene 8 DRE */
+.dre-wrap{display:grid;grid-template-columns:1.55fr 1fr;gap:clamp(24px,5vw,110px);width:min(1500px,100%);align-items:center}
+.dre{text-align:left}
+.dre .row{display:flex;justify-content:space-between;gap:24px;font-size:clamp(20px,1.85vw,36px);padding:.32em 0;border-bottom:1px solid var(--faint)}
+.dre .row span{font-weight:500;color:var(--dim)}
+.dre .row b{font-weight:800;white-space:nowrap}
+.dre .row:first-child span{color:var(--ink)}
+.dre .row.neg b{color:var(--dim);font-weight:700}
+.dre .row.tot{border-bottom:0;border-top:3px solid var(--gold);margin-top:.2em;padding-top:.45em}
+.dre .row.tot span,.dre .row.tot b{color:var(--gold);font-weight:900}
+.pb{text-align:left}
+.pb .k{font-family:var(--mono);font-size:clamp(14px,1.1vw,22px);letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.pb .v{font-weight:900;font-size:clamp(80px,9.5vw,190px);letter-spacing:-.045em;line-height:1;color:var(--gold);margin-top:.1em}
+.pb .s{font-weight:500;font-size:clamp(20px,1.85vw,36px);color:var(--dim);margin-top:.3em}
